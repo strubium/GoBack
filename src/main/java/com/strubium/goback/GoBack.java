@@ -2,6 +2,8 @@ package com.strubium.goback;
 
 import com.strubium.goback.events.PlayerMoveEventHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -21,7 +23,8 @@ public class GoBack {
      */
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.info("Hello From {}!", Tags.MOD_NAME);
+        ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
+
     }
 
     @Mod.EventHandler

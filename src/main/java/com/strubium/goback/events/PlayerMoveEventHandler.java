@@ -5,6 +5,8 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
 
+import static com.strubium.goback.config.GoBackConfig.slowFactor;
+
 public class PlayerMoveEventHandler {
 
     @SubscribeEvent
@@ -18,8 +20,8 @@ public class PlayerMoveEventHandler {
             // Check if the player is moving backwards
             if (player.moveForward < 0) {
                 // Slow down the player by directly modifying the motion
-                player.motionX *= 0.5; // Reduce X motion
-                player.motionZ *= 0.5; // Reduce Z motion
+                player.motionX *= slowFactor; // Reduce X motion
+                player.motionZ *= slowFactor; // Reduce Z motion
             }
         }
     }
